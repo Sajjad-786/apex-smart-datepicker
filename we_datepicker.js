@@ -74,6 +74,17 @@ var WE_DatePicker = (function () {
     icon.style.top       = "50%";
     icon.style.transform = "translateY(-50%)";
 
+    // --- Wrap position sicherstellen ---
+    wrap.style.position   = "relative";
+    wrap.style.display    = "inline-flex";
+    wrap.style.alignItems = "center";
+    
+    if (isStretch) {
+      wrap.style.width = "100%";
+    } else {
+      wrap.style.width = "auto";
+    }
+    
     // --- Min / Max ---
     var minDate = parseDate(wrap.getAttribute("data-min"));
     var maxDate = parseDate(wrap.getAttribute("data-max"));
