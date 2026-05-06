@@ -40,8 +40,8 @@
 }
 
 .we-picker {
-  display: none;
-  position: absolute;
+  position: fixed;
+  display: none; 
   z-index: 9999;
   background: #fff;
   border: 1px solid var(--we-color-medium);
