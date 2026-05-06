@@ -1,3 +1,17 @@
+-- ============================================================
+-- APEX Smart Datepicker - Render Procedure
+-- Version : 1.0.0
+-- Released: 2026-05-06
+--
+-- Author  : Sajjad Hanifa
+-- Company : S&H Software Solutions
+-- Website : https://shsoftwaresolution.com
+-- Blog    : https://apexnote.de
+--
+-- License : MIT
+-- Copyright (c) 2026 S&H Software Solutions
+-- ============================================================
+
 -- --------------------------------------------------------
 -- APEX Smart Datepicker Plugin
 -- Render Procedure

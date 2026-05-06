@@ -1,3 +1,23 @@
+/*!
+ * APEX Smart Datepicker
+ * Version: 1.0.0
+ * Released: 2026-05-06
+ *
+ * Author:  Sajjad Hanifa
+ * Company: S&H Software Solutions
+ * Website: https://shsoftwaresolution.com
+ * Blog:    https://apexnote.de
+ * YouTube: https://www.youtube.com/@APEX-NOTE
+ *
+ * License: MIT
+ * Copyright (c) 2026 S&H Software Solutions
+ *
+ * Description:
+ * Smart Oracle APEX Date Picker plugin with auto-format,
+ * min/max validation, fast year/month selection and
+ * language detection (DE/EN).
+ */
+
 var WE_DatePicker = (function () {
 
   function hexToRgb(hex) {
