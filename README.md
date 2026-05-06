@@ -1,6 +1,11 @@
 # 📅 APEX Smart Datepicker Plugin
 
-A smart, lightweight Oracle APEX Date Picker plugin focused on UX, validation, and fast date selection.
+> A smart, lightweight Oracle APEX Date Picker plugin focused on UX, validation, and fast date selection.  
+> Built with ❤️ by [Sajjad Hanifa](https://shsoftwaresolution.com) · S&H Software Solutions
+
+---
+
+![Demo](demo/apex_smart_datepicker_demo.gif)
 
 ---
 
@@ -15,24 +20,75 @@ A smart, lightweight Oracle APEX Date Picker plugin focused on UX, validation, a
 - **Auto language detection** — German or English based on browser language
 - **Custom primary color** — all shades calculated automatically from one hex color
 - **Fully responsive** — adapts to APEX item width with or without stretch
-- **Exportable** — no external schema dependencies, everything inside the plugin
+- **No overflow clipping** — picker renders outside any APEX region boundary
+- **No external libraries** — pure JavaScript and CSS, no dependencies
 
 ---
 
-## 📁 Files
+## 🖼️ Screenshots
 
-| File | Description |
-|------|-------------|
-| `we_datepicker.js` | All JavaScript logic |
-| `we_datepicker.css` | All styles |
-| `render_date_picker.sql` | PL/SQL render code for the plugin |
+| Default | Days |
+|---|---|
+| ![Default](screenshots/apex_smart_datepicker.jpg) | ![Days](screenshots/apex_smart_datepicker_days.jpg) |
+
+| Months | Years |
+|---|---|
+| ![Months](screenshots/apex_smart_datepicker_months.jpg) | ![Years](screenshots/apex_smart_datepicker_years.jpg) |
+
+---
+
+## 🎬 Demo Video
+
+👉 [Watch full demo video](demo/apex_smart_datepicker_demo.mp4)
+
+---
+
+## 📁 Repository Structure
+
+```
+apex-smart-datepicker/
+├── plugin/
+│   └── we_datepicker.sql              ← APEX Plugin export (import this)
+├── src/
+│   ├── we_datepicker.js               ← JavaScript logic
+│   ├── we_datepicker.css              ← Styles
+│   └── render_date_picker.sql         ← PL/SQL render procedure
+├── screenshots/
+│   ├── apex_smart_datepicker.jpg
+│   ├── apex_smart_datepicker_days.jpg
+│   ├── apex_smart_datepicker_months.jpg
+│   └── apex_smart_datepicker_years.jpg
+├── demo/
+│   ├── apex_smart_datepicker_demo.gif
+│   └── apex_smart_datepicker_demo.mp4
+└── README.md
+```
+
+---
+
+## 🚀 Installation
+
+1. Go to **Shared Components → Plug-ins → Import**
+2. Import the file from the `plugin/` folder
+3. Upload `we_datepicker.js` and `we_datepicker.css` under the **Files** tab
+4. Set **Render Procedure** to `RENDER_DATE_PICKER`
+5. Paste the PL/SQL code from `src/render_date_picker.sql` into the **Source** tab
+
+---
+
+## 🧩 Usage
+
+1. Add a new item to your APEX page
+2. Select **Date Picker WE** as the item type
+3. Configure placeholder, color, and min/max dates in the item settings
+4. Save and run
 
 ---
 
 ## ⚙️ Plugin Attributes
 
 | # | Label | Type | Description |
-|---|-------|------|-------------|
+|---|---|---|---|
 | 1 | Text Alignment | Select List | `left`, `center`, `right` |
 | 2 | Primary Color | Text | Hex color e.g. `#7b1a2e` |
 | 3 | Min Date | Text | See allowed values below |
@@ -41,7 +97,7 @@ A smart, lightweight Oracle APEX Date Picker plugin focused on UX, validation, a
 ### Min / Max Date — Allowed Values
 
 | Value | Result |
-|-------|--------|
+|---|---|
 | *(empty)* | No limit |
 | `SYSDATE` | Today |
 | `SYSDATE+30` | Today + 30 days |
@@ -50,31 +106,10 @@ A smart, lightweight Oracle APEX Date Picker plugin focused on UX, validation, a
 
 ---
 
-## 🚀 Installation
-
-1. Go to **Shared Components → Plug-ins → Import**
-2. Import the plugin file
-3. Upload `we_datepicker.js` and `we_datepicker.css` under the **Files** tab
-4. Set **Render Procedure** to `RENDER_DATE_PICKER`
-5. Paste the PL/SQL code from `render_date_picker.sql` into the **Source** tab
-
----
-
-## 🧩 Usage
-
-1. Add a new item to your page
-2. Select **Date Picker WE** as the item type
-3. Set your placeholder, color, and min/max dates in the item settings
-4. Save and run
-
----
-
 ## 🌍 Language Support
 
-The plugin automatically detects the browser language:
-
 | Browser Language | Result |
-|-----------------|--------|
+|---|---|
 | `de` | German month and day names |
 | anything else | English |
 
@@ -100,10 +135,20 @@ Set one hex color as **Primary Color** — the plugin automatically calculates:
 
 ## 👨‍💻 Author
 
-Built by Sajjad — Oracle APEX Developer
+**Sajjad Hanifa** — Oracle ACE Apprentice · APEX Developer & Consultant
+
+| | |
+|---|---|
+| 🌐 Website | [shsoftwaresolution.com](https://shsoftwaresolution.com) |
+| 📝 Blog | [apexnote.de](https://apexnote.de) |
+| ▶️ YouTube | [@APEX-NOTE](https://www.youtube.com/@APEX-NOTE) |
+| 💼 LinkedIn | [sajjad-hanifa](https://www.linkedin.com/in/sajjad-hanifa/) |
+
+> Built at **S&H Software Solutions** — advancing Oracle APEX development worldwide.
 
 ---
 
 ## 📄 License
 
-MIT License — free to use, modify and distribute.
+MIT License — free to use, modify and distribute.  
+Copyright (c) 2026 S&H Software Solutions
