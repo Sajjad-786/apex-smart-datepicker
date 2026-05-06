@@ -51,6 +51,11 @@ var WE_DatePicker = (function () {
     wrap.style.setProperty("--we-color-light",  lighten(color, 0.85));
     wrap.style.setProperty("--we-color-medium", lighten(color, 0.70));
 
+    // Farbe auch auf picker setzen (da picker an body gehängt wird)
+    picker.style.setProperty("--we-color",        color);
+    picker.style.setProperty("--we-color-light",  lighten(color, 0.85));
+    picker.style.setProperty("--we-color-medium", lighten(color, 0.70));
+
     // --- t-Form-itemWrapper und Input fixen ---
     var itemWrapper    = wrap.closest(".t-Form-itemWrapper");
     var fieldContainer = wrap.closest(".t-Form-fieldContainer");
@@ -78,13 +83,13 @@ var WE_DatePicker = (function () {
     wrap.style.position   = "relative";
     wrap.style.display    = "inline-flex";
     wrap.style.alignItems = "center";
-    
+
     if (isStretch) {
       wrap.style.width = "100%";
     } else {
       wrap.style.width = "auto";
     }
-    
+
     // --- Min / Max ---
     var minDate = parseDate(wrap.getAttribute("data-min"));
     var maxDate = parseDate(wrap.getAttribute("data-max"));
@@ -158,6 +163,17 @@ var WE_DatePicker = (function () {
         field.title = "";
       }
     });
+
+    // --- Picker positionieren ---
+    function positionPicker() {
+      var rect        = field.getBoundingClientRect();
+      var scrollTop   = window.pageYOffset || document.documentElement.scrollTop;
+      var scrollLeft  = window.pageXOffset || document.documentElement.scrollLeft;
+      picker.style.position = "absolute";
+      picker.style.top      = (rect.bottom + scrollTop + 6) + "px";
+      picker.style.left     = (rect.left + scrollLeft) + "px";
+      picker.style.width    = rect.width + "px";
+    }
 
     // --- Render ---
     function render() {
@@ -262,8 +278,12 @@ var WE_DatePicker = (function () {
       e.stopPropagation();
       var isOpen = picker.style.display === "block";
       if (!isOpen) {
+        // *** FIX: Picker an body hängen damit keine Region ihn abschneidet ***
+        if (picker.parentNode !== document.body) {
+          document.body.appendChild(picker);
+        }
+        positionPicker();
         picker.style.display = "block";
-        picker.style.width   = field.offsetWidth + "px";
         render();
       } else {
         picker.style.display = "none";
@@ -274,9 +294,16 @@ var WE_DatePicker = (function () {
       e.stopPropagation();
     });
 
+    // --- Neu positionieren bei Scroll oder Resize ---
     window.addEventListener("resize", function () {
       if (picker.style.display === "block") {
-        picker.style.width = field.offsetWidth + "px";
+        positionPicker();
+      }
+    });
+
+    document.addEventListener("scroll", function () {
+      if (picker.style.display === "block") {
+        picker.style.display = "none"; // Picker schließen beim Scrollen
       }
     });
 
